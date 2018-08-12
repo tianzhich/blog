@@ -6,6 +6,12 @@ import './index.css'
 import styled from 'styled-components'
 import heartLogo from '../images/valentines-heart.svg'
 
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
 const StyledHeader = styled.header`
   background: #20232a;
   margin-bottom: 1.45rem;
@@ -18,6 +24,8 @@ const StyledHeader = styled.header`
 
 const StyledContent = styled.div`
   margin-top: 50px;
+  width: 100%;
+  flex-grow: 1;
 `
 
 const StyledFooter = styled.div`
@@ -25,6 +33,7 @@ const StyledFooter = styled.div`
   width: 100%;
   background: #20232a;
   color: #ffffff;
+
   & img {
     margin-bottom: 0;
   }
@@ -34,17 +43,16 @@ const StyledFooter = styled.div`
     text-align: center;
   }
   & a {
-    color: inherit;
+    color: #61dafb;
 
     &:hover {
       text-decoration: none;
-      color: #61dafb
     }
   }
 `
 
 const Layout = ({ children, data }) => (
-  <div>
+  <StyledContainer>
     <StyledHeader>
       {/* <Helmet
         title={data.site.siteMetadata.title}
@@ -66,7 +74,7 @@ const Layout = ({ children, data }) => (
         </p>
         </div>
     </StyledFooter>
-  </div>
+  </StyledContainer>
 )
 
 Layout.propTypes = {

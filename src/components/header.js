@@ -17,6 +17,7 @@ const StyledHeader = styled.div`
 
     &:hover {
       color: #61dafb;
+      text-decoration: none;
     }
   }
   & img {
@@ -115,7 +116,7 @@ const Header = () =>
       <span>React</span>
     </HomeLink>
     <StyledNav>
-      <Link to='/' is>前端学习</Link>
+      <Link to='/fed' >前端学习</Link>
       <Link to='/' >计算机</Link>
       <Link to='/' >算法</Link>
     </StyledNav>

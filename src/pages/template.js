@@ -1,25 +1,29 @@
+import styled from 'styled-components'
 import React from 'react'
 import Link from 'gatsby-link'
-import styled from 'styled-components'
 
-const AboutMe = styled.div`
-  width: 100%;
-  height: 300px;
-  background-color: #61dafb;
-  
+const StyledSection = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  display: flex;
 `
 
 const PostListWrapper = styled.div`
-  width: 90%;
+  width: 60%;
   margin: 0 auto;
-
+  
   & > ul {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     list-style: none;
-    
   }
-  
+`
+
+const StyledAside = styled.aside`
+  position: fixed;
 `
 
 const PostList = styled.li`
@@ -29,13 +33,6 @@ const PostList = styled.li`
   padding-bottom: 40px;
   width: 100%;
   border-top: 1px dotted rgb(236, 236, 236);
-
-  @media (min-width: 980px) {
-    width: 33%;
-  }
-  @media (max-width: 979px) and (min-width: 780px) {
-    width: 50%;
-  }
 
   & > h2 {
     font-size: 24px;
@@ -70,14 +67,14 @@ const Date = styled.div`
   letter-spacing: 0.08em;
 `
 
-const IndexPage = ({ data }) => {
+const TemplatePage = ({ posts }) => {
+  console.log(posts);
   return (
-    <div>
-      <AboutMe />
+    <StyledSection>
       <PostListWrapper>
         <ul>
           {
-            data.allMarkdownRemark.edges.map(({ node }) =>
+            posts.allMarkdownRemark.edges.map(({ node }) =>
               <PostList key={node.id}>
                 <h2>
                   <Link to="/">{node.frontmatter.title}</Link>
@@ -89,26 +86,11 @@ const IndexPage = ({ data }) => {
           }
         </ul>
       </PostListWrapper>
-    </div>
-  )
+      <StyledAside>
+
+      </StyledAside>
+    </StyledSection>
+  );
 }
 
-export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-          }
-          excerpt
-        }
-      }
-    }
-  }
-`
-
-export default IndexPage
+export default TemplatePage;

@@ -30,6 +30,7 @@
     "deploy": "gh-pages -d public"
   },
   "devDependencies": {
+    "gh-pages": "^1.2.0",
     "prettier": "^1.13.7",
     "url-loader": "^1.0.1"
   },
