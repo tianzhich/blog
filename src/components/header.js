@@ -123,8 +123,8 @@ const Header = () =>
     <FriendLink>
       <span>友情链接</span>
       <div>
-        <a href="#">小泽的博客</a>
-        <a href="#">Ting的博客</a>
+        <a href="https://best921.github.io/">小泽的博客</a>
+        <a href="https://takikuzhu.github.io/">Ting的博客</a>
       </div>
     </FriendLink>
     <GithubLink href="https://github.com/tianzhich" target="_blank" >
