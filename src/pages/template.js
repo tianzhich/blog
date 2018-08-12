@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
 
 const StyledSection = styled.div`
   padding-left: 20px;
@@ -74,6 +75,7 @@ const TemplatePage = ({ posts }) => {
       <PostListWrapper>
         <ul>
           {
+            !posts ? null :
             posts.allMarkdownRemark.edges.map(({ node }) =>
               <PostList key={node.id}>
                 <h2>
