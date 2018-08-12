@@ -13,13 +13,11 @@ const StyledSection = styled.div`
 `
 
 const PostListWrapper = styled.div`
-  width: 60%;
-  margin: 0 auto;
-  
   & > ul {
     display: flex;
     flex-wrap: nowrap;
     list-style: none;
+    flex-direction: column;
   }
 `
 

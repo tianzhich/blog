@@ -117,8 +117,8 @@ const Header = () =>
     </HomeLink>
     <StyledNav>
       <Link to='/fed' >前端学习</Link>
-      <Link to='/fed' >计算机</Link>
-      <Link to='/fed' >算法</Link>
+      <Link to='/cs' >计算机</Link>
+      <Link to='/algorithm' >算法</Link>
     </StyledNav>
     <FriendLink>
       <span>友情链接</span>
