@@ -80,7 +80,7 @@ const IndexPage = ({ data }) => {
             data.allMarkdownRemark.edges.map(({ node }) =>
               <PostList key={node.id}>
                 <h2>
-                  <Link to="/">{node.frontmatter.title}</Link>
+                  <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
                 </h2>
                 <Excerpt>{node.excerpt}</Excerpt>
                 <Date>{node.frontmatter.date}</Date>
@@ -103,6 +103,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+          }
+          fields {
+            slug
           }
           excerpt
         }

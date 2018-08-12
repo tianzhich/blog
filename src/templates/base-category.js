@@ -79,7 +79,7 @@ const TemplatePage = ({ posts }) => {
             posts.allMarkdownRemark.edges.map(({ node }) =>
               <PostList key={node.id}>
                 <h2>
-                  <Link to="/">{node.frontmatter.title}</Link>
+                  <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
                 </h2>
                 <Excerpt>{node.excerpt}</Excerpt>
                 <Date>{node.frontmatter.date}</Date>

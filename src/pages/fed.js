@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import FedPage from './template'
+import FedPage from '../templates/base-category'
 
 const FedIndexPage = ({data}) => (
   <FedPage posts={data}/>
@@ -21,6 +21,9 @@ export const query = graphql`
               title
               date (formatString: "MMMM DD, YYYY")
               category
+            }
+            fields {
+              slug
             }
             excerpt
           }
