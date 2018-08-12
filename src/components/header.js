@@ -117,11 +117,11 @@ const Header = () =>
     </HomeLink>
     <StyledNav>
       <Link to='/fed' >前端学习</Link>
-      <Link to='/' >计算机</Link>
-      <Link to='/' >算法</Link>
+      <Link to='/fed' >计算机</Link>
+      <Link to='/fed' >算法</Link>
     </StyledNav>
     <FriendLink>
-      <span href="#">友情链接</span>
+      <span>友情链接</span>
       <div>
         <a href="#">小泽的博客</a>
         <a href="#">Ting的博客</a>
