@@ -23,8 +23,8 @@ const StyledHeader = styled.header`
 `
 
 const StyledContent = styled.div`
-  margin-top: 50px;
-  width: 100%;
+  margin-top: 50px auto 0;
+  width: 50%;
   flex-grow: 1;
 `
 
