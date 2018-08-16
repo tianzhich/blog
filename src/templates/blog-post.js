@@ -1,5 +1,6 @@
 import React from "react"; 
 import styled from 'styled-components'
+import "katex/dist/katex.min.css"
 
 const PostWrapper = styled.div`
   width: 90%;
