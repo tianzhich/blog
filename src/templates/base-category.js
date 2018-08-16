@@ -67,7 +67,6 @@ const Date = styled.div`
 `
 
 const TemplatePage = ({ posts }) => {
-  console.log(posts);
   return (
     <StyledSection>
       <PostListWrapper>
