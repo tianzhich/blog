@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
 import "katex/dist/katex.min.css"
+import './blog-post.scss'
 
 const Body = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ const Body = styled.div`
     @media (min-width: 1340px) {
       max-width: 1260px;
     }
+    width: 100%;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
@@ -30,6 +32,7 @@ const Wrapper = styled.div`
     flex-basis: auto;
     justify-content: flex-start;
     align-items: stretch;
+    overflow-x: hidden;
   }
 
   aside {
@@ -64,6 +67,7 @@ const ContentsWrapper = styled.div`
     height: 100vh;
     overflow-y: auto;
     pointer-events: none;
+    opacity: 0;
   }
   @media (min-width: 600px) {
     position: fixed;
@@ -102,6 +106,7 @@ const Contents = styled.div`
     ul {
       list-style: none;
       margin-bottom: 10px;
+      margin-left: 0;
 
       li {
         margin-top: 5px;
@@ -110,6 +115,25 @@ const Contents = styled.div`
         }
       }
     }
+  }
+`
+
+const ContentsTitle = styled.div`
+  margin-top: 10px;
+  color: #6d6d6d;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 3;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  svg {
+    margin-left: 7px;
+    transform: rotateY(180deg);
+  }
+
+  @media (min-width: 600px) {
+    color: #1a1a1a;
   }
 `
 
@@ -133,7 +157,20 @@ export default ({ data }) => {
                 <Contents>
                   <nav>
                     <div>
-                      <span>Fake Contents</span>
+                      <ContentsTitle>
+                        Fake Contents
+                        <svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" ><g transform="translate(904.92214,-879.1482)"><path d="
+                            m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+                            -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+                            0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+                            -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+                            -174.68583 0.6895,0 26.281,25.03215 56.8701,
+                            55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+                            -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+                            -104.0616 -231.873,-231.248 z
+                            " fill="currentColor"></path></g>
+                        </svg>
+                      </ContentsTitle>
                       <ul>
                         <li >
                           <a href="#">React v16.4.2: Server-side vulnerability fix</a>
