@@ -9,6 +9,7 @@
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.46",
     "gatsby-plugin-react-helmet": "^2.0.11",
+    "gatsby-plugin-sass": "^1.0.26",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-plugin-typography": "^1.7.19",
     "gatsby-remark-katex": "^1.0.14",

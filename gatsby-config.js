@@ -4,6 +4,7 @@ module.exports = {
   },
   pathPrefix: '/blog',
   plugins: [
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
