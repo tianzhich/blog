@@ -33,6 +33,10 @@ const HomeLink = styled(Link)`
   height: 100%;
   align-items: center;
 
+  @media (max-width: 599px) {
+    flex: 0 0 auto;
+  }
+
   @media (min-width: 600px) {
     width: calc(100% / 6);
   }
@@ -77,6 +81,7 @@ const StyledNav = styled.nav`
 
   @media (max-width: 599px) {
     mask-image: -webkit-linear-gradient(to right, transparent, black 20px, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black 90%, transparent);
   }
   @media (max-width: 599px) and (min-width: 0px) {
     flex-grow: 1;
@@ -91,6 +96,7 @@ const StyledNav = styled.nav`
     padding-left: 15px;
     padding-right: 15px;
     font-weight: 300;
+    white-space: nowrap;
 
     @media (max-width: 599px) and (min-width: 0px) {
       padding-left: 8px;
