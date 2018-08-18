@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import Header from '../components/header'
-import './index.css'
+import './index.scss'
 import styled from 'styled-components'
 import heartLogo from '../images/valentines-heart.svg'
 
