@@ -8,7 +8,7 @@ yarn-error.log
 .DS_Store
 
 # post pages
-src/pages
+src/pages/2018
 
 # vscode config
 /.vscode
