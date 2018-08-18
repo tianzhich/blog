@@ -72,7 +72,7 @@ const TemplatePage = ({ posts }) => {
       <PostListWrapper>
         <ul>
           {
-            !posts ? null :
+            !posts.allMarkdownRemark ? null :
             posts.allMarkdownRemark.edges.map(({ node }) =>
               <PostList key={node.id}>
                 <h2>
