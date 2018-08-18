@@ -3,21 +3,21 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 const AboutMe = styled.div`
-  width: 100%;
+  width: 300%;
   height: 300px;
   background-color: #61dafb;
-  
+  margin-left: -1000px;
 `
 
 const PostListWrapper = styled.div`
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 
   & > ul {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    
+    margin-left: -40px;
   }
   
 `
@@ -82,7 +82,7 @@ const IndexPage = ({ data }) => {
                 <h2>
                   <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
                 </h2>
-                <Excerpt>{node.excerpt}</Excerpt>
+                <Excerpt>{node.frontmatter.excerpt}</Excerpt>
                 <Date>{node.frontmatter.date}</Date>
               </PostList>
             )
@@ -103,11 +103,11 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            excerpt
           }
           fields {
             slug
           }
-          excerpt
         }
       }
     }

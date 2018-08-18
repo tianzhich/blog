@@ -21,11 +21,11 @@ export const query = graphql`
               title
               date (formatString: "MMMM DD, YYYY")
               category
+              excerpt
             }
             fields {
               slug
             }
-            excerpt
           }
         }
       }
