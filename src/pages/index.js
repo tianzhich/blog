@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 const AboutMe = styled.div`
-  width: 300%;
+  width: 3000px;
   height: 300px;
   background-color: #61dafb;
   margin-left: -1000px;
