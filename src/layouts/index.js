@@ -51,6 +51,7 @@ const StyledBody = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  overflow: hidden;
 `
 
 const BodyLayout = styled.div`
