@@ -153,14 +153,14 @@ const FriendLink = styled.div`
     bottom: -80px;
   }
 
-  &.clicked {
+  &:hover {
     color: #61dafb;
     div {
       display: block;
     }
   }
 
-  &:hover {
+  &.clicked {
     color: #61dafb;
     div {
       display: block;
@@ -221,11 +221,11 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.hideFriendLinks)
+    document.addEventListener('touchend', this.hideFriendLinks)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.hideFriendLinks);
+    document.removeEventListener('touchend', this.hideFriendLinks);
   }
 
   render() {
@@ -241,7 +241,7 @@ class Header extends React.Component {
           <Link to='/algorithm'>算法</Link>
         </StyledNav>
         <FriendLink
-          onClick={this.showFriendLinks}
+          onTouchEnd={this.showFriendLinks}
           innerRef={ele => this.toggleBtn = ele}
         >
           友情链接
