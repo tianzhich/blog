@@ -4,20 +4,19 @@ import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
 const StyledSection = styled.div`
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
   display: flex;
+  width: 100%;
 `
 
 const PostListWrapper = styled.div`
+  width: 100%;
+
   & > ul {
     display: flex;
     flex-wrap: nowrap;
     list-style: none;
     flex-direction: column;
+    margin-left: -40px;
   }
 `
 
@@ -78,7 +77,7 @@ const TemplatePage = ({ posts }) => {
                 <h2>
                   <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
                 </h2>
-                <Excerpt>{node.excerpt}</Excerpt>
+                  <Excerpt>{node.frontmatter.excerpt}</Excerpt>
                 <Date>{node.frontmatter.date}</Date>
               </PostList>
             )
