@@ -49,6 +49,25 @@ const StyledBody = styled.div`
   }
 `
 
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+`
+
+const BodyLayout = styled.div`
+  @media (min-width: 780px) {
+    width: 90%;
+  }
+  @media (min-width: 1340px) {
+    max-width: 1260px;
+  }
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+`
+
 const StyledFooter = styled.div`
   height: 50px;
   width: 100%;
@@ -88,7 +107,11 @@ const Layout = ({ children, data }) => (
       </div>
     </StyledHeader>
     <StyledBody>
-      {children()}
+      <Wrapper>
+        <BodyLayout>
+          {children()}
+        </BodyLayout>
+      </Wrapper>
     </StyledBody>
     <StyledFooter>
       <div>
