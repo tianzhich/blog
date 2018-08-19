@@ -15,10 +15,10 @@ const StyledHeader = styled.header`
   background-color: #20232a;
   color: #ffffff;
   position: fixed;
-  z-index: 3;
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 2;
 
   & > div {
     padding-left: 20px;
@@ -73,7 +73,7 @@ const StyledFooter = styled.div`
   width: 100%;
   background: #20232a;
   color: #ffffff;
-  z-index: 3;
+  position: relative;
 
   & img {
     margin-bottom: 0;

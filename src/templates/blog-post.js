@@ -45,7 +45,7 @@ const ContentsWrapper = styled.div`
     right: 0px;
     position: fixed;
     background-color: rgb(255, 255, 255);
-    z-index: 2;
+    z-index: 1;
     height: 100vh;
     overflow-y: auto;
     pointer-events: none;
@@ -53,7 +53,6 @@ const ContentsWrapper = styled.div`
   }
   @media (min-width: 600px) {
     position: fixed;
-    z-index: 2;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     background-color: #f7f7f7;
