@@ -8,6 +8,7 @@ import heartLogo from '../images/valentines-heart.svg'
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 `
 
 const StyledHeader = styled.header`
