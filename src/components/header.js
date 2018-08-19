@@ -88,6 +88,7 @@ const StyledNav = styled.nav`
   }
 
   a {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -97,6 +98,31 @@ const StyledNav = styled.nav`
     padding-right: 15px;
     font-weight: 300;
     white-space: nowrap;
+
+    @media (min-width: 600px) {
+      &::after {
+        content: "";
+      }
+    }
+
+    &.active {
+      color: #61dafb;
+
+      ::after {
+        position: absolute;
+        bottom: -1px;
+        height: 4px;
+        background: #61dafb;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &:focus {
+      outline: 0;
+      background-color: #373940;
+      color: #ffffff;
+    }
 
     @media (max-width: 599px) and (min-width: 0px) {
       padding-left: 8px;
@@ -176,9 +202,6 @@ const FriendLink = styled.div`
     text-align: left;
     transition: color 0.2s ease-out;
   }
-  a:hover {
-    color: #61dafb;
-  }
 `
 
 const GithubLink = styled.div`
@@ -210,10 +233,22 @@ const GithubLink = styled.div`
 `
 
 class Header extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isActive: ""
+    }
+  }
 
   showFriendLinks = (e) => {
     this.toggleBtn.classList.add('clicked');
     e.nativeEvent.stopImmediatePropagation();
+  }
+
+  toggleActiveLinks = (category) => {
+    this.setState({
+      isActive: category
+    });
   }
 
   hideFriendLinks = () => {
@@ -231,14 +266,20 @@ class Header extends React.Component {
   render() {
     return (
       <StyledHeader>
-        <HomeLink to="/">
+        <HomeLink to="/" onClick={() => this.toggleActiveLinks('')}>
           <img src={logo} alt="" height="20" />
           <span>React</span>
         </HomeLink>
         <StyledNav>
-          <Link to='/fed' >前端学习</Link>
-          <Link to='/cs' >计算机</Link>
-          <Link to='/algorithm'>算法</Link>
+          <Link to='/fed'
+            className={this.state.isActive === "fed" ? "active" : ""}
+            onClick={() => this.toggleActiveLinks('fed')}>前端学习</Link>
+          <Link to='/cs'
+            className={this.state.isActive === "cs" ? "active" : ""}
+            onClick={() => this.toggleActiveLinks('cs')}>计算机</Link>
+          <Link to='/algorithm'
+            className={this.state.isActive === "algorithm" ? "active" : ""}
+            onClick={() => this.toggleActiveLinks('algorithm')}>算法</Link>
         </StyledNav>
         <FriendLink
           onTouchEnd={this.showFriendLinks}
