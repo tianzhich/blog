@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import logo from '../images/React-icon.svg'
 
 const StyledHeader = styled.div`
   display: flex;
@@ -267,7 +266,19 @@ class Header extends React.Component {
     return (
       <StyledHeader>
         <HomeLink to="/" onClick={() => this.toggleActiveLinks('')}>
-          <img src={logo} alt="" height="20" />
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="-11.5 -10.23174 23 20.46348"
+            height="20"
+          >
+            <title>React Logo</title>
+            <circle cx="0" cy="0" r="2.05" fill="#61dafb" />
+            <g stroke="#61dafb" stroke-width="1" fill="none">
+              <ellipse rx="11" ry="4.2" />
+              <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+              <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+            </g>
+          </svg>
           <span>React</span>
         </HomeLink>
         <StyledNav>

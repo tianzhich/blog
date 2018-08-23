@@ -31,7 +31,7 @@ const PostList = styled.li`
   border-top: 1px dotted rgb(236, 236, 236);
 
   @media (min-width: 980px) {
-    width: 33%;
+    width: 33.33%;
   }
   @media (max-width: 979px) and (min-width: 780px) {
     width: 50%;

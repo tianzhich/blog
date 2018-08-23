@@ -15,8 +15,17 @@ const PostListWrapper = styled.div`
     display: flex;
     flex-wrap: nowrap;
     list-style: none;
-    flex-direction: column;
     margin-left: -40px;
+    margin-bottom: 0;
+  }
+
+  & > h1 {
+    color: rgb(40, 44, 52);
+    margin-right: 5%;
+    font-size: 60px;
+    line-height: 65px;
+    font-weight: 700;
+    border-bottom: 0;
   }
 `
 
@@ -31,6 +40,13 @@ const PostList = styled.li`
   padding-bottom: 40px;
   width: 100%;
   border-top: 1px dotted rgb(236, 236, 236);
+
+  @media (min-width: 980px) {
+    width: 33.33%;
+  }
+  @media (max-width: 979px) and (min-width: 780px) {
+    width: 50%;
+  }
 
   & > h2 {
     font-size: 24px;
@@ -69,6 +85,7 @@ const TemplatePage = ({ posts }) => {
   return (
     <StyledSection>
       <PostListWrapper>
+        <h1>All Posts</h1>
         <ul>
           {
             !posts.allMarkdownRemark ? null :
