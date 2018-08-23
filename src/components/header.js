@@ -159,6 +159,12 @@ const FriendLink = styled.div`
     margin-right: 10px;
   }
 
+  @media (max-width: 599px) {
+    margin-right: 0;
+    min-width: 0;
+    margin-left: 10px;
+  }
+
   @media (min-width: 600px) {
     width: calc(100%/12);
   }
@@ -205,15 +211,6 @@ const FriendLink = styled.div`
 
 const GithubLink = styled.div`
   text-align: center;
-
-  @media (max-width: 779px) {
-    display: none;
-  }
-
-  @media (min-width: 980px) {
-    width: calc(100% / 6);
-  }
-
   a {
     padding: 5px 10px;
     margin-left: 10px;
@@ -228,6 +225,21 @@ const GithubLink = styled.div`
       vertical-align: -2px;
       color: #6d6d6d;
     }
+  }
+
+  @media (max-width: 320px) {
+    display: none;
+  }
+
+  @media (max-width: 499px) {
+    a {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @media (min-width: 980px) {
+    width: calc(100% / 6);
   }
 `
 
