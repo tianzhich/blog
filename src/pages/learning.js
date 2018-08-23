@@ -1,9 +1,23 @@
 import React from 'react'
-import Learining from '../templates/base-category'
+import Learining, {filterPosts} from '../templates/base-category'
 
-const LearningPage = ({data}) => (
-  <Learining posts={data}/>
-)
+const LearningPage = ({ data }) => {
+  const allPosts = [{
+    name: "前端开发",
+    posts: !data.allMarkdownRemark ? [] :
+      filterPosts(data.allMarkdownRemark.edges, "前端开发")
+  }, {
+    name: "计算机原理",
+    posts: !data.allMarkdownRemark ? [] :
+      filterPosts(data.allMarkdownRemark.edges, "计算机原理")
+  }, {
+    name: "算法",
+    posts: !data.allMarkdownRemark ? [] :
+      filterPosts(data.allMarkdownRemark.edges, "算法")
+  }];
+
+  return <Learining allPosts={allPosts}/>
+}
 
 
 export const query = graphql`
@@ -20,6 +34,7 @@ export const query = graphql`
               title
               date (formatString: "MMMM DD, YYYY")
               category
+              subCategory
               excerpt
             }
             fields {

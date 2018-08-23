@@ -2,9 +2,22 @@ import styled from 'styled-components'
 import React from 'react'
 import Link from 'gatsby-link'
 
+export const filterPosts = (data, key) => {
+  return data.filter(({ node }) => {
+    return node.frontmatter.subCategory === key;
+  })
+}
+
 const StyledSection = styled.div`
   display: flex;
   width: 100%;
+  flex-direction: column;
+`
+
+const Wrapper = styled.div`
+  h1 {
+    border-bottom: none;
+  }
 `
 
 const PostListWrapper = styled.div`
@@ -80,26 +93,33 @@ const Date = styled.div`
   letter-spacing: 0.08em;
 `
 
-const TemplatePage = ({ posts }) => {
+const TemplatePage = ({ allPosts }) => {
+  console.log(allPosts);
   return (
     <StyledSection>
-      <PostListWrapper>
-        <h1>All Posts</h1>
-        <ul>
-          {
-            !posts.allMarkdownRemark ? null :
-            posts.allMarkdownRemark.edges.map(({ node }) =>
-              <PostList key={node.id}>
-                <h2>
-                  <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-                </h2>
-                  <Excerpt>{node.frontmatter.excerpt}</Excerpt>
-                <Date>{node.frontmatter.date}</Date>
-              </PostList>
-            )
-          }
-        </ul>
-      </PostListWrapper>
+      {
+        allPosts.map(({ name, posts }) =>
+          posts.length === 0 ? null : 
+          <Wrapper key={name}>
+            <h1>{name}</h1>
+            <PostListWrapper>
+              <ul>
+                {
+                  posts.map(({ node }) =>
+                    <PostList key={node.id}>
+                      <h2>
+                        <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+                      </h2>
+                      <Excerpt>{node.frontmatter.excerpt}</Excerpt>
+                      <Date>{node.frontmatter.date}</Date>
+                    </PostList>
+                  )
+                }
+              </ul>
+            </PostListWrapper>
+          </Wrapper>
+        )
+      }
       <StyledAside>
 
       </StyledAside>

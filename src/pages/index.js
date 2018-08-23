@@ -76,12 +76,12 @@ const IndexPage = () => {
     <Wrapper>
       <AboutMe>
         <Avatar>
-          <a href="https://github.com/tianzhich">
+          <a href="https://github.com/tianzhich" target="_blank">
             <img src={avatar} alt="" height="120" />
           </a>
         </Avatar>
         <Intro>
-          <a href="https://github.com/tianzhich">tianzhich</a>
+          <a href="https://github.com/tianzhich" target="_blank">tianzhich</a>
           <p>Review and learn things new<br />But sometimes naive</p>
           <div>
             <a href="https://www.weibo.com/StephenTian66" target="_blank">
