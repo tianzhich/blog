@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Header from '../components/header'
 import './index.scss'
 import styled from 'styled-components'
+import Helmet from 'react-helmet'
+import favicon from '../images/favicon.png';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -94,14 +96,13 @@ const StyledFooter = styled.div`
 
 const Layout = ({ children, data }) => (
   <StyledContainer>
+    <Helmet
+      title={data.site.siteMetadata.title}
+      link={[
+        { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }
+      ]}
+    />
     <StyledHeader>
-      {/* <Helmet
-        title={data.site.siteMetadata.title}
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
-        ]}
-      /> */}
       <div>
         <Header siteTitle={data.site.siteMetadata.title} />
       </div>

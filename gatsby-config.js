@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Blog By Tian Zhi',
+    title: 'To The Future',
   },
   pathPrefix: '/blog',
   plugins: [

@@ -94,7 +94,6 @@ const Date = styled.div`
 `
 
 const TemplatePage = ({ allPosts }) => {
-  console.log(allPosts);
   return (
     <StyledSection>
       {
