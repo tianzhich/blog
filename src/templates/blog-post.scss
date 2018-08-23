@@ -1,14 +1,6 @@
-// KaTex math equations overflow
-span.katex-display {
-  overflow-x: auto;
-}
-
-// table overflow
-div.table-scroll {
-  overflow-x: auto;
-}
-
-// code blocks
+// handle overflow for KaTex math equations, Tables, CodeBlocks
+span.katex-display,
+div.table-scroll,
 pre {
   overflow-x: auto;
 }

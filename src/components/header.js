@@ -273,7 +273,7 @@ class Header extends React.Component {
           >
             <title>React Logo</title>
             <circle cx="0" cy="0" r="2.05" fill="#61dafb" />
-            <g stroke="#61dafb" stroke-width="1" fill="none">
+            <g stroke="#61dafb" strokeWidth="1" fill="none">
               <ellipse rx="11" ry="4.2" />
               <ellipse rx="11" ry="4.2" transform="rotate(60)" />
               <ellipse rx="11" ry="4.2" transform="rotate(120)" />
@@ -282,21 +282,21 @@ class Header extends React.Component {
           <span>React</span>
         </HomeLink>
         <StyledNav>
-          <Link to='/fed'
-            className={this.state.isActive === "fed" ? "active" : ""}
-            onClick={() => this.toggleActiveLinks('fed')}>前端学习</Link>
-          <Link to='/cs'
-            className={this.state.isActive === "cs" ? "active" : ""}
-            onClick={() => this.toggleActiveLinks('cs')}>计算机</Link>
-          <Link to='/algorithm'
-            className={this.state.isActive === "algorithm" ? "active" : ""}
-            onClick={() => this.toggleActiveLinks('algorithm')}>算法</Link>
+          <Link to='/learning'
+            className={this.state.isActive === "learning" ? "active" : ""}
+            onClick={() => this.toggleActiveLinks('learning')}>Learning</Link>
+          <Link to='/life'
+            className={this.state.isActive === "life" ? "active" : ""}
+            onClick={() => this.toggleActiveLinks('life')}>Life</Link>
+          <Link to='/fitness'
+            className={this.state.isActive === "fitness" ? "active" : ""}
+            onClick={() => this.toggleActiveLinks('fitness')}>Fitness</Link>
         </StyledNav>
         <FriendLink
           onTouchEnd={this.showFriendLinks}
           innerRef={ele => this.toggleBtn = ele}
         >
-          友情链接
+          Friends
           <div>
             <a href="https://best921.github.io/">小泽的博客</a>
             <a href="https://takikuzhu.github.io/">Ting的博客</a>

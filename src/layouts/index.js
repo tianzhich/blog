@@ -38,6 +38,7 @@ const StyledBody = styled.div`
   margin-top: 60px;
   width: 100%;
   flex-grow: 1;
+  display: flex;
 
   @media (max-width: 1279px) and (min-width: 780px) {
     margin-top: 50px;
