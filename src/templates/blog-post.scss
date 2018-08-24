@@ -4,3 +4,13 @@ div.table-scroll,
 pre {
   overflow-x: auto;
 }
+
+// Offsetting heading(h2,h3) to adjust the fixed Header when clicking hash anchor
+h2::before,
+h3::before {
+  display: block;
+  content: " ";
+  height: 60px;
+  margin-top: -60px;
+  visibility: hidden;
+}

@@ -121,78 +121,92 @@ const FloatButton = styled.div`
 
 `
 
-export default ({ data }) => {
-  const post = data.markdownRemark;
-  return (
-    <Body>
-      <article>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </article>
-      <aside>
-        <div>
-          <ContentsWrapper>
-            <Contents>
-              <nav>
-                <div>
-                  <ContentsTitle>
-                    Fake Contents
-                    <svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" ><g transform="translate(904.92214,-879.1482)"><path d="
-                        m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
-                        -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
-                        0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
-                        -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
-                        -174.68583 0.6895,0 26.281,25.03215 56.8701,
-                        55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
-                        -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
-                        -104.0616 -231.873,-231.248 z
-                        " fill="currentColor"></path></g>
-                    </svg>
-                  </ContentsTitle>
-                  <ul>
-                    <li >
-                      <a href="#">React v16.4.2: Server-side vulnerability fix</a>
-                    </li>
-                    <li >
-                      <a href="#"><span></span>You Probably Don't Need Derived State</a>
-                    </li>
-                    <li >
-                      <a href="#">React v16.4.0: Pointer Events</a>
-                    </li>
-                    <li >
-                      <a href="#">React v16.3.0: New lifecycles and context API</a>
-                    </li>
-                    <li >
-                      <a href="#">Update on Async Rendering</a>
-                    </li>
-                    <li >
-                      <a href="#">Sneak Peek: Beyond React 16</a>
-                    </li>
-                    <li >
-                      <a href="#">Behind the Scenes: Improving the Repository Infrastructure</a>
-                    </li>
-                    <li >
-                      <a href="#">Introducing the React RFC Process</a>
-                    </li>
-                    <li >
-                      <a href="#">React v16.2.0: Improved Support for Fragments</a>
-                    </li>
-                    <li >
-                      <a href="#">React v16.0</a>
-                    </li>
-                    <li >
-                      <a href="#">All posts ...</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-            </Contents>
-          </ContentsWrapper>
-          <FloatButton />
-        </div>
-      </aside>
-    </Body>
-  );
+export default class extends React.Component  {
+  shiftWindow = () => { 
+    window.scrollBy(0, -1000);
+  };
+
+  componentDidMount() {
+    window.addEventListener('hashchange', this.shiftWindow); 
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this.shiftWindow);
+  }
+
+  render() {
+    const post = this.props.data.markdownRemark;
+    return (
+      <Body>
+        <article>
+          <h1>{post.frontmatter.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </article>
+        <aside>
+          <div>
+            <ContentsWrapper>
+              <Contents>
+                <nav>
+                  <div>
+                    <ContentsTitle>
+                      Fake Contents
+                      <svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" ><g transform="translate(904.92214,-879.1482)"><path d="
+                          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+                          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+                          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+                          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+                          -174.68583 0.6895,0 26.281,25.03215 56.8701,
+                          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+                          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+                          -104.0616 -231.873,-231.248 z
+                          " fill="currentColor"></path></g>
+                      </svg>
+                    </ContentsTitle>
+                    <ul>
+                      <li >
+                        <a href="#">React v16.4.2: Server-side vulnerability fix</a>
+                      </li>
+                      <li >
+                        <a href="#"><span></span>You Probably Don't Need Derived State</a>
+                      </li>
+                      <li >
+                        <a href="#">React v16.4.0: Pointer Events</a>
+                      </li>
+                      <li >
+                        <a href="#">React v16.3.0: New lifecycles and context API</a>
+                      </li>
+                      <li >
+                        <a href="#">Update on Async Rendering</a>
+                      </li>
+                      <li >
+                        <a href="#">Sneak Peek: Beyond React 16</a>
+                      </li>
+                      <li >
+                        <a href="#">Behind the Scenes: Improving the Repository Infrastructure</a>
+                      </li>
+                      <li >
+                        <a href="#">Introducing the React RFC Process</a>
+                      </li>
+                      <li >
+                        <a href="#">React v16.2.0: Improved Support for Fragments</a>
+                      </li>
+                      <li >
+                        <a href="#">React v16.0</a>
+                      </li>
+                      <li >
+                        <a href="#">All posts ...</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </Contents>
+            </ContentsWrapper>
+            <FloatButton />
+          </div>
+        </aside>
+      </Body>
+    );
+  }
 };
 
 export const query = graphql`

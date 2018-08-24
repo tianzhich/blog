@@ -25,6 +25,12 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            option: {
+              offsetY: `-200`,
+            }
+          },
           `gatsby-remark-katex`,
           {
             resolve: `gatsby-remark-images`,
