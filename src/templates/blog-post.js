@@ -7,6 +7,7 @@ const Body = styled.div`
   display: flex;
 
   article {
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -122,18 +123,6 @@ const FloatButton = styled.div`
 `
 
 export default class extends React.Component  {
-  shiftWindow = () => { 
-    window.scrollBy(0, -1000);
-  };
-
-  componentDidMount() {
-    window.addEventListener('hashchange', this.shiftWindow); 
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('hashchange', this.shiftWindow);
-  }
-
   render() {
     const post = this.props.data.markdownRemark;
     return (

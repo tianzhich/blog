@@ -26,13 +26,6 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-autolink-headers`,
-            option: {
-              offsetY: `-200`,
-            }
-          },
-          `gatsby-remark-katex`,
-          {
             resolve: `gatsby-remark-images`,
             options: {
               // It's important to specify the maxWidth (in pixels) of
@@ -41,6 +34,13 @@ module.exports = {
               maxWidth: 590,
             },
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            option: {
+              offsetY: `-200`,
+            }
+          },
+          `gatsby-remark-katex`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

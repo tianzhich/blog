@@ -1,16 +1,95 @@
 // handle overflow for KaTex math equations, Tables, CodeBlocks
-span.katex-display,
-div.table-scroll,
 pre {
   overflow-x: auto;
 }
 
-// Offsetting heading(h2,h3) to adjust the fixed Header when clicking hash anchor
+article ol,
+article ul {
+  margin-left: 32px;
+}
+
+// Offsetting heading to adjust the fixed Header when clicking hash anchor
 h2::before,
-h3::before {
+h3::before,
+h4::before,
+h5::before,
+h6::before {
   display: block;
-  content: " ";
-  height: 60px;
-  margin-top: -60px;
+  content: "";
+  height: 75px;
+  margin-top: -75px;
   visibility: hidden;
+}
+
+// blockquote
+article blockquote {
+  background-color: rgba(255, 229, 100, 0.3);
+  border-left-color: #ffe564;
+  border-left-width: 9px;
+  border-left-style: solid;
+  padding: 20px 45px 20px 26px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+// link
+article a:not(.anchor):not(.gatsby-resp-image-link) {
+  background-color: rgba(187, 239, 253, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #1a1a1a;
+}
+
+// table
+article table {
+  display: block;
+  margin: 0 auto 16px;
+  width: 100%;
+  overflow: auto;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+  tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+  }
+  tr:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
+  td,
+  th {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+    &:first-child,
+    &:last-child {
+      padding: 6px 13px;
+    }
+  }
+}
+
+// math(KaTex) 
+// inline
+:not(.katex-display) .katex {
+  background-color: rgb(218, 218, 218);
+}
+
+// under ol, li 
+ol .katex-display,
+ul .katex-display {
+  margin-left: -62px;
+}
+
+// block
+.katex-display {
+  overflow-x: scroll;
+  background-color: rgb(218, 218, 218);
+  margin-left: -30px;
+  margin-right: -30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  .katex {
+    padding: 1rem;
+  }
 }

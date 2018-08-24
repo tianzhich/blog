@@ -78,6 +78,22 @@ code[class*="language-"] ::selection {
   color: #c5a5c5;
 }
 
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #999999;
+}
+
+.token.string {
+  color: #8dc891;
+}
+
+.token.selector {
+  color: #ddca7e;
+}
+
 /**
  * Add back the container background-color, border-radius, padding, margin
  * and overflow that we removed from <pre>.
