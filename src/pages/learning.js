@@ -23,6 +23,10 @@ const LearningPage = ({ data }) => {
 export const query = graphql`
   query LearningIndexQuery {
     allMarkdownRemark(
+      sort: {
+        fields: [frontmatter___date],
+        order: DESC
+      }
       filter: {
         frontmatter: {category: {eq: "learning"}}
       }

@@ -25,7 +25,7 @@ const PostListWrapper = styled.div`
 
   & > ul {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     list-style: none;
     margin-left: -40px;
     margin-bottom: 0;
@@ -51,7 +51,6 @@ const PostList = styled.li`
   padding-top: 40px;
   padding-bottom: 40px;
   width: 100%;
-  border-top: 1px dotted rgb(236, 236, 236);
 
   @media (min-width: 980px) {
     width: 33.33%;

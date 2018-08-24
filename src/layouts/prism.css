@@ -1,0 +1,207 @@
+/**
+ * prism.js theme for JavaScript, CSS and HTML
+ * Based on reactjs.org (https://reactjs.org)
+ * @author Zhi Tian
+ */
+
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+/* Inline code */
+
+:not(pre)>code[class*="language-"] {
+  padding: 0 3px;
+  font-size: 16px;
+  word-break: break-word;
+  background: rgba(255, 229, 100, 0.2);
+  color: #1a1a1a;
+}
+
+.token.keyword {
+  color: #c5a5c5;
+}
+
+.token.atrule,
+.token.class-name {
+  color: #FAC863;
+}
+
+.token.punctuation {
+  color: #5FB3B3;
+}
+
+.token.function {
+  color: #79b6f2;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+  color: #d7deea;
+}
+
+.token.property,
+.token.number,
+.token.function-name,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #5a9bcf;
+}
+
+.token.tag {
+  color: #fc929e;
+}
+
+.token.attr-name {
+  color: #c5a5c5;
+}
+
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+
+.gatsby-highlight {
+  margin-top: 25px;
+  margin-left: -30px;
+  margin-right: -30px;
+  margin-bottom: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #282c34;
+  color: #ffffff;
+  border-radius: 10px;
+  overflow: auto;
+  tab-size: 1.5em;
+  -moz-tab-size: 1.5em;
+  -o-tab-size: 1.5em;
+  line-height: 20px;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/**
+ * Remove the default PrismJS theme background-color, border-radius, margin,
+ * padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ */
+
+.gatsby-highlight pre[class*="language-"] {
+  height: auto !important;
+  margin: 1rem;
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 20px;
+}
+
+.gatsby-highlight code[class*="language-"] {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+
+.gatsby-highlight-code-line {
+  background-color: #14161a;
+  display: block;
+  margin: -0.125rem calc(-1rem - 15px);
+  padding: 0.125rem calc(1rem + 15px);
+}
+
+/* Default */
+
+/* .token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+  background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+.token.function,
+.token.class-name {
+  color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+} */

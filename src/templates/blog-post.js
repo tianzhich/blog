@@ -14,7 +14,6 @@ const Body = styled.div`
     flex-basis: auto;
     justify-content: flex-start;
     align-items: stretch;
-    overflow-x: hidden;
   }
 
   aside {
