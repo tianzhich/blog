@@ -7,7 +7,6 @@ const Body = styled.div`
   display: flex;
 
   article {
-    width: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -15,6 +14,11 @@ const Body = styled.div`
     flex-basis: auto;
     justify-content: flex-start;
     align-items: stretch;
+    padding-left: 30px;
+    margin-left: -30px;
+    padding-right: 30px;
+    margin-right: -30px;
+    overflow: hidden;
   }
 
   aside {
@@ -35,8 +39,10 @@ const Body = styled.div`
   }
 `
 
-const ContentsWrapper = styled.div`
+const Wrapper = styled.div`
   height: calc(100vh - 60px);
+  padding-right: 999px;
+  margin-right: -999px;
 
   @media (max-width: 599px) {
     top: 0px;
@@ -66,7 +72,7 @@ const ContentsWrapper = styled.div`
   }
 `
 
-const Contents = styled.div`
+const ContentsWrapper = styled.div`
   margin-top: 60px;
 
   @media (max-width: 599px) and (min-width: 0px) {
@@ -84,22 +90,13 @@ const Contents = styled.div`
     padding-left: 20px;
     position: relative;
 
-    ul {
-      list-style: none;
-      margin-bottom: 10px;
-      margin-left: 0;
-
-      li {
-        margin-top: 5px;
-        a {
-
-        }
-      }
+    @media (min-width: 1100px) {
+      padding-left: 40px;
     }
   }
 `
 
-const ContentsTitle = styled.div`
+const Title = styled.div`
   margin-top: 10px;
   color: #6d6d6d;
   font-size: 14px;
@@ -118,13 +115,91 @@ const ContentsTitle = styled.div`
   }
 `
 
+const Contents = styled.ul`
+  transition: border 0.2s ease;
+  list-style: none;
+  margin-bottom: 10px;
+  margin-left: 0;
+
+  & > li {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: #1a1a1a;
+    display: inline-block;
+    transition: border 0.2s ease;
+    text-decoration: none;
+    &:hover {
+      color: #6d6d6d;
+      outline-width: 0;
+    }
+  }
+
+  a::before {
+    width: 4px;
+    height: 25px;
+    content: '';
+    border-left: 4px solid #61dafb;
+    padding-left: 16px;
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+
+    @media (min-width: 1100px) {
+      left: 15px;
+    }
+  }
+
+  a.active {
+    font-weight: 700;
+
+    &:hover {
+      color: #6d6d6d;
+    }
+
+    &::before {
+      visibility: visible;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 0px;
+    margin-top: 0;
+    margin-left: 20px;
+     
+    li {
+      margin-bottom: 0;
+    }
+  }
+`
+
 const FloatButton = styled.div`
 
 `
 
 export default class extends React.Component  {
+  constructor() {
+    super();
+    this.state = {
+      activeAnchor: "#"
+    }
+  }
+  toggleActiveAnchor = (activeAnchor) => {
+    this.setState({
+      activeAnchor
+    })
+  }
+  componentDidMount() {
+    this.setState({
+      activeAnchor: decodeURIComponent(window.location.hash)
+    })
+  }
   render() {
     const post = this.props.data.markdownRemark;
+    const activeAnchor = this.state.activeAnchor;
     return (
       <Body>
         <article>
@@ -133,63 +208,60 @@ export default class extends React.Component  {
         </article>
         <aside>
           <div>
-            <ContentsWrapper>
-              <Contents>
+            <Wrapper>
+              <ContentsWrapper>
                 <nav>
                   <div>
-                    <ContentsTitle>
-                      Fake Contents
-                      <svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" ><g transform="translate(904.92214,-879.1482)"><path d="
-                          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
-                          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
-                          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
-                          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
-                          -174.68583 0.6895,0 26.281,25.03215 56.8701,
-                          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
-                          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
-                          -104.0616 -231.873,-231.248 z
-                          " fill="currentColor"></path></g>
+                    <Title>
+                      Contents
+                      <svg viewBox="0 0 926.23699 573.74994" version="1.1" width="10" height="10" >
+                        <g transform="translate(904.92214,-879.1482)">
+                          <path d="
+                            m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+                            -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+                            0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+                            -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+                            -174.68583 0.6895,0 26.281,25.03215 56.8701,
+                            55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+                            -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+                            -104.0616 -231.873,-231.248 z" fill="currentColor">
+                          </path>
+                        </g>
                       </svg>
-                    </ContentsTitle>
-                    <ul>
-                      <li >
-                        <a href="#">React v16.4.2: Server-side vulnerability fix</a>
-                      </li>
-                      <li >
-                        <a href="#"><span></span>You Probably Don't Need Derived State</a>
-                      </li>
-                      <li >
-                        <a href="#">React v16.4.0: Pointer Events</a>
-                      </li>
-                      <li >
-                        <a href="#">React v16.3.0: New lifecycles and context API</a>
-                      </li>
-                      <li >
-                        <a href="#">Update on Async Rendering</a>
-                      </li>
-                      <li >
-                        <a href="#">Sneak Peek: Beyond React 16</a>
-                      </li>
-                      <li >
-                        <a href="#">Behind the Scenes: Improving the Repository Infrastructure</a>
-                      </li>
-                      <li >
-                        <a href="#">Introducing the React RFC Process</a>
-                      </li>
-                      <li >
-                        <a href="#">React v16.2.0: Improved Support for Fragments</a>
-                      </li>
-                      <li >
-                        <a href="#">React v16.0</a>
-                      </li>
-                      <li >
-                        <a href="#">All posts ...</a>
-                      </li>
-                    </ul>
+                    </Title>
+                    <Contents>
+                      {
+                        post.frontmatter.contents.map(content => 
+                          <li key={content.text}>
+                            <a href={`#${content.text}`}
+                              onClick={() => this.toggleActiveAnchor(`#${content.text}`)}
+                              className={activeAnchor === `#${content.text}` ? 'active' : ''}>
+                              {content.text}
+                            </a>
+                            {
+                              content.subContents ? 
+                              <ul>
+                                {
+                                  content.subContents.map(subContent => 
+                                    <li key={subContent.text}>
+                                      <a href={`#${subContent.text}`}
+                                        onClick={() => this.toggleActiveAnchor(`#${subContent.text}`)}
+                                        className={activeAnchor === `#${subContent.text}` ? 'active' : ''}>
+                                        {subContent.text}
+                                      </a>
+                                    </li>
+                                  )
+                                }
+                              </ul> : null
+                            }
+                          </li>
+                        )
+                      }
+                    </Contents>
                   </div>
                 </nav>
-              </Contents>
-            </ContentsWrapper>
+              </ContentsWrapper>
+            </Wrapper>
             <FloatButton />
           </div>
         </aside>
@@ -203,7 +275,13 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        title
+        title,
+        contents {
+          text
+          subContents {
+            text
+          }
+        }
       }
     }
   }
