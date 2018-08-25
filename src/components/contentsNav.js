@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ActionButton from './actionButton'
 
 const Aside = styled.aside`
   @media (min-width: 600px) {
@@ -24,17 +25,21 @@ const Wrapper = styled.div`
   margin-right: -999px;
 
   @media (max-width: 599px) {
+    transition: opacity 0.5s ease;
     top: 0px;
     left: 0px;
     bottom: 0px;
     right: 0px;
     position: fixed;
     background-color: rgb(255, 255, 255);
-    z-index: 1;
+    z-index: ${props => props.isActive ? 1 : -1};
     height: 100vh;
     overflow-y: auto;
-    pointer-events: none;
-    opacity: 0;
+    opacity: ${props => props.isActive ? 1 : 0};
+
+    & + div.action-button {
+      display: block;
+    }
   }
   @media (min-width: 600px) {
     position: fixed;
@@ -53,9 +58,12 @@ const Wrapper = styled.div`
 
 const ContentsWrapper = styled.div`
   margin-top: 60px;
+  transform: translateY(0);
+  transition: transform 0.5s ease;
 
-  @media (max-width: 599px) and (min-width: 0px) {
+  @media (max-width: 599px) {
     margin-top: 40px;
+    transform: ${props => props.isActive ? 'translateY(0)' : 'translateY(40px)'};
   }
   @media (max-width: 979px) and (min-width: 600px) {
     margin-top: 0;
@@ -155,16 +163,13 @@ const Contents = styled.ul`
   }
 `
 
-const FloatButton = styled.div`
-
-`
-
 export default class ContentsNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       activeItem: '',
-      itemOffsets: []
+      itemOffsets: [],
+      isButtonActive: false
     }
   }
 
@@ -217,9 +222,10 @@ export default class ContentsNav extends React.Component {
    * 后面想到可以判断是否滑到到底部，如果是，则scroll事件中不去setState，从而让click事件生效
    **/
   toggleActiveItem = (activeItem) => {
-    this.setState({
-      activeItem
-    });
+    this.setState(prevState => ({
+      activeItem,
+      isButtonActive: !prevState.isButtonActive
+    }));
   }
 
   componentDidMount() {
@@ -237,68 +243,76 @@ export default class ContentsNav extends React.Component {
     window.removeEventListener('scroll', this.onScroll, false);
   }
 
+  toggleActionButton = () => {
+    this.setState(prevState => ({
+      isButtonActive: !prevState.isButtonActive
+    }));
+  }
+
   render() {
     const contents = this.props.contents;
     return (
       <Aside>
-          <div>
-            <Wrapper>
-              <ContentsWrapper>
-                <nav>
-                  <div>
-                    <Title>
-                      Contents
-                      <svg viewBox="0 0 926.23699 573.74994" version="1.1" width="10" height="10" >
-                        <g transform="translate(904.92214,-879.1482)">
-                          <path d="
-                            m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
-                            -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
-                            0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
-                            -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
-                            -174.68583 0.6895,0 26.281,25.03215 56.8701,
-                            55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
-                            -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
-                            -104.0616 -231.873,-231.248 z" fill="currentColor">
-                          </path>
-                        </g>
-                      </svg>
-                    </Title>
-                    <Contents>
-                      {
-                        contents.map(content => 
-                          <li key={content.text}>
-                            <a href={`#${content.text}`}
-                              onClick={() => this.toggleActiveItem(`#${content.text}`)}
-                              className={this.state.activeItem === `#${content.text}` ? 'active' : ''}>
-                              {content.text}
-                            </a>
-                            {
-                              content.subContents ? 
-                              <ul>
-                                {
-                                  content.subContents.map(subContent => 
-                                    <li key={subContent.text}>
-                                      <a href={`#${subContent.text}`}
-                                        onClick={() => this.toggleActiveItem(`#${subContent.text}`)}
-                                        className={this.state.activeItem === `#${subContent.text}` ? 
-                                        'active' : ''}>
-                                        {subContent.text}
-                                      </a>
-                                    </li>
-                                  )
-                                }
-                              </ul> : null
-                            }
-                          </li>
-                        )
-                      }
-                    </Contents>
-                  </div>
-                </nav>
-              </ContentsWrapper>
-            </Wrapper>
-            <FloatButton />
-          </div>
+        <div>
+          <Wrapper isActive={this.state.isButtonActive}>
+            <ContentsWrapper isActive={this.state.isButtonActive}>
+              <nav>
+                <div>
+                  <Title>
+                    Contents
+                    <svg viewBox="0 0 926.23699 573.74994" version="1.1" width="10" height="10" >
+                      <g transform="translate(904.92214,-879.1482)">
+                        <path d="
+                          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+                          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+                          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+                          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+                          -174.68583 0.6895,0 26.281,25.03215 56.8701,
+                          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+                          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+                          -104.0616 -231.873,-231.248 z" fill="currentColor">
+                        </path>
+                      </g>
+                    </svg>
+                  </Title>
+                  <Contents>
+                    {
+                      contents.map(content => 
+                        <li key={content.text}>
+                          <a href={`#${content.text}`}
+                            onClick={() => this.toggleActiveItem(`#${content.text}`)}
+                            className={this.state.activeItem === `#${content.text}` ? 'active' : ''}>
+                            {content.text}
+                          </a>
+                          {
+                            content.subContents ? 
+                            <ul>
+                              {
+                                content.subContents.map(subContent => 
+                                  <li key={subContent.text}>
+                                    <a href={`#${subContent.text}`}
+                                      onClick={() => this.toggleActiveItem(`#${subContent.text}`)}
+                                      className={this.state.activeItem === `#${subContent.text}` ? 
+                                      'active' : ''}>
+                                      {subContent.text}
+                                    </a>
+                                  </li>
+                                )
+                              }
+                            </ul> : null
+                          }
+                        </li>
+                      )
+                    }
+                  </Contents>
+                </div>
+              </nav>
+            </ContentsWrapper>
+          </Wrapper>
+          <ActionButton 
+            toggleActionButton={this.toggleActionButton} 
+            isActive={this.state.isButtonActive} />
+        </div>
       </Aside>
     );
   }
