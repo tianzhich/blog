@@ -194,7 +194,7 @@ export default class ContentsNav extends React.Component {
   }
 
   findOffsetById(id) {
-    return document.getElementById(id).offsetTop;
+    return document.getElementById(id) ? document.getElementById(id).offsetTop : -1;
   }
 
   onScroll = () => {
