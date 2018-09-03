@@ -138,6 +138,7 @@ code[class*="language-"] ::selection {
 
 .gatsby-highlight code[class*="language-"] {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+  color: #a6e22e;
 }
 
 .gatsby-highlight-code-line {
