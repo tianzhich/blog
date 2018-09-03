@@ -201,8 +201,9 @@ export default class ContentsNav extends React.Component {
     let itemOffsets = this.state.itemOffsets;
     let activeItem = itemOffsets.find((item, i) => {
       let nextItem = itemOffsets[i+1];
-      return nextItem ? window.scrollY >= item.offsetTop && window.scrollY < nextItem.offsetTop : 
-        window.scrollY >= item.offsetTop;
+      return nextItem ? 
+        window.scrollY >= item.offsetTop-10 && window.scrollY < nextItem.offsetTop-10 : 
+        window.scrollY >= item.offsetTop-10;
     });
 
     // 滑动到底时，不让scroll事件修改activeItem，转交给click事件
