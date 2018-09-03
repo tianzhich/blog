@@ -93,3 +93,10 @@ ul .katex-display {
     padding: 1rem;
   }
 }
+
+a.gatsby-resp-image-link + span {
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 0.9em;
+}
