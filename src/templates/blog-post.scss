@@ -70,7 +70,7 @@ article table {
 
 // math(KaTex) 
 // inline
-:not(.katex-display) .katex {
+:not(.katex-display) .katex-html {
   background-color: rgb(218, 218, 218);
 }
 
@@ -94,7 +94,7 @@ ul .katex-display {
   }
 }
 
-a.gatsby-resp-image-link + span {
+a.gatsby-resp-image-link+span {
   display: block;
   margin-top: 5px;
   text-align: center;
