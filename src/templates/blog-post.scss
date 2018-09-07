@@ -94,6 +94,12 @@ ul .katex-display {
   }
 }
 
+// gatsby-image 
+.gatsby-resp-image-wrapper {
+  max-width: 450px !important;
+} 
+
+// figure text
 a.gatsby-resp-image-link+span {
   display: block;
   margin-top: 5px;
