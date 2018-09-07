@@ -223,9 +223,10 @@ export default class ContentsNav extends React.Component {
    * 后面想到可以判断是否滑到到底部，如果是，则scroll事件中不去setState，从而让click事件生效
    **/
   toggleActiveItem = (activeItem) => {
-    this.setState({
-      activeItem
-    })
+    this.setState(prevState => ({
+      activeItem,
+      isButtonActive: !prevState.isButtonActive
+    }));
   }
 
   componentDidMount() {
