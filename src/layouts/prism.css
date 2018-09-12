@@ -136,8 +136,11 @@ code[class*="language-"] ::selection {
   line-height: 20px;
 }
 
-.gatsby-highlight code[class*="language-"] {
+code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+
+.gatsby-highlight code[class*="language-"] {
   color: #a6e22e;
 }
 
