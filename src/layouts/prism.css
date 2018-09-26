@@ -138,6 +138,8 @@ code[class*="language-"] ::selection {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .gatsby-highlight code[class*="language-"] {
