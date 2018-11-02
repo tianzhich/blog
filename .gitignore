@@ -9,6 +9,7 @@ yarn-error.log
 
 # post pages
 src/pages/learning
+src/pages/life
 
 # vscode config
 /.vscode

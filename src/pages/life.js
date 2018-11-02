@@ -3,9 +3,9 @@ import Life, { filterPosts } from '../templates/base-category'
 
 const LifePage = ({ data }) => {
   const allPosts = [{
-    name: "fake1",
+    name: "工作学习",
     posts: !data.allMarkdownRemark ? [] :
-      filterPosts(data.allMarkdownRemark.edges, "fake1")
+      filterPosts(data.allMarkdownRemark.edges, "工作学习")
   }, {
     name: "fake2",
     posts: !data.allMarkdownRemark ? [] :
@@ -23,6 +23,10 @@ const LifePage = ({ data }) => {
 export const query = graphql`
   query LifeIndexQuery {
     allMarkdownRemark(
+      sort: {
+        fields: [frontmatter___date],
+        order: DESC
+      }
       filter: {
         frontmatter: {category: {eq: "life"}}
       }
