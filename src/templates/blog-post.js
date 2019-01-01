@@ -20,6 +20,22 @@ const Body = styled.div`
     padding-right: 30px;
     margin-right: -30px;
     overflow: hidden;
+
+    header {
+      h1 {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border: none;
+      }
+      div {
+        margin-top: 15px;
+      }
+      p {
+        margin-top: 30px;
+        color: #6d6d6d;
+        margin-bottom: 0;
+      }
+    }
   }
 `
 
@@ -30,7 +46,11 @@ export default class extends React.Component  {
     return (
       <Body>
         <article>
-          <h1>{post.frontmatter.title}</h1>
+          <header>
+            <h1>{post.frontmatter.title}</h1>
+            <div>{`${post.frontmatter.date} by Tian Zhi`}</div>
+            <p>{post.frontmatter.excerpt}</p>
+          </header>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
         <ContentsNav contents={contents} />
@@ -44,7 +64,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        title,
+        title
+        date (formatString: "MMMM DD, YYYY")
+        excerpt
         contents {
           text
           subContents {

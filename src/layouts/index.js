@@ -104,9 +104,7 @@ const Layout = ({ children, data }) => (
       ]}
     />
     <StyledHeader>
-      <div>
-        <Header siteTitle={data.site.siteMetadata.title} />
-      </div>
+      <Header siteTitle={data.site.siteMetadata.title} />
     </StyledHeader>
     <StyledBody>
       <Wrapper>
