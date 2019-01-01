@@ -7,9 +7,9 @@ const LifePage = ({ data }) => {
     posts: !data.allMarkdownRemark ? [] :
       filterPosts(data.allMarkdownRemark.edges, "工作学习")
   }, {
-    name: "fake2",
+    name: "年终总结",
     posts: !data.allMarkdownRemark ? [] :
-      filterPosts(data.allMarkdownRemark.edges, "fake2")
+      filterPosts(data.allMarkdownRemark.edges, "年终总结")
   }, {
     name: "fake3",
     posts: !data.allMarkdownRemark ? [] :
