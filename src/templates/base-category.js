@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
+import Layout from '../components/layout'
 
 export const filterPosts = (data, key) => {
   return data.filter(({ node }) => {
-    return node.frontmatter.subCategory === key;
+    return node.frontmatter.subCategory === key
   })
 }
 
@@ -94,35 +95,34 @@ const Date = styled.div`
 
 const TemplatePage = ({ allPosts }) => {
   return (
-    <StyledSection>
-      {
-        allPosts.map(({ name, posts }) =>
-          posts.length === 0 ? null : 
-          <Wrapper key={name}>
-            <h1>{name}</h1>
-            <PostListWrapper>
-              <ul>
-                {
-                  posts.map(({ node }) =>
+    <Layout>
+      <StyledSection>
+        {allPosts.map(({ name, posts }) =>
+          posts.length === 0 ? null : (
+            <Wrapper key={name}>
+              <h1>{name}</h1>
+              <PostListWrapper>
+                <ul>
+                  {posts.map(({ node }) => (
                     <PostList key={node.id}>
                       <h2>
-                        <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+                        <Link to={node.fields.slug}>
+                          {node.frontmatter.title}
+                        </Link>
                       </h2>
                       <Excerpt>{node.frontmatter.excerpt}</Excerpt>
                       <Date>{node.frontmatter.date}</Date>
                     </PostList>
-                  )
-                }
-              </ul>
-            </PostListWrapper>
-          </Wrapper>
-        )
-      }
-      <StyledAside>
-
-      </StyledAside>
-    </StyledSection>
-  );
+                  ))}
+                </ul>
+              </PostListWrapper>
+            </Wrapper>
+          )
+        )}
+        <StyledAside></StyledAside>
+      </StyledSection>
+    </Layout>
+  )
 }
 
-export default TemplatePage;
+export default TemplatePage

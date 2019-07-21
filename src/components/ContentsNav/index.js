@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActionButton from './actionButton'
+import ActionButton from '../ActionButton'
 
 const Aside = styled.aside`
   @media (min-width: 600px) {

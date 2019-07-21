@@ -1,8 +1,10 @@
-import React from "react";
+import React from 'react'
 import styled from 'styled-components'
-import "katex/dist/katex.min.css"
+import 'katex/dist/katex.min.css'
 import './blog-post.scss'
 import ContentsNav from '../components/contentsNav'
+import Layout from '../components/layout'
+import { StaticQuery, graphql } from 'gatsby'
 
 const Body = styled.div`
   display: flex;
@@ -39,41 +41,44 @@ const Body = styled.div`
   }
 `
 
-export default class extends React.Component  {
-  render() {
-    const post = this.props.data.markdownRemark;
-    const contents = this.props.data.markdownRemark.frontmatter.contents
-    return (
-      <Body>
-        <article>
-          <header>
-            <h1>{post.frontmatter.title}</h1>
-            <div>{`${post.frontmatter.date} by Tian Zhi`}</div>
-            <p>{post.frontmatter.excerpt}</p>
-          </header>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </article>
-        <ContentsNav contents={contents} />
-      </Body>
-    );
-  }
-};
-
-export const query = graphql`
-  query BlogPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date (formatString: "MMMM DD, YYYY")
-        excerpt
-        contents {
-          text
-          subContents {
-            text
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query($slug: String!) {
+        markdownRemark(fields: { slug: { eq: $slug } }) {
+          html
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            excerpt
+            contents {
+              text
+              subContents {
+                text
+              }
+            }
           }
         }
       }
-    }
-  }
-`;
+    `}
+    render={data => {
+      const post = data.markdownRemark
+      const contents = data.markdownRemark.frontmatter.contents
+      return (
+        <Layout>
+          <Body>
+            <article>
+              <header>
+                <h1>{post.frontmatter.title}</h1>
+                <div>{`${post.frontmatter.date} by Tian Zhi`}</div>
+                <p>{post.frontmatter.excerpt}</p>
+              </header>
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </article>
+            <ContentsNav contents={contents} />
+          </Body>
+        </Layout>
+      )
+    }}
+  />
+)
