@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{196:function(e,n,t){"use strict";t.r(n);var l=t(0),a=t.n(l);n.default=function(){return a.a.createElement("div",null,a.a.createElement("h1",null,"NOT FOUND"),a.a.createElement("p",null,"There's not much left here for you ;)"),a.a.createElement("p",null,"这里啥也没有，请访问其他页面吧"))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-36c4f200e8f49537f706.js.map

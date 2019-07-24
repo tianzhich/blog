@@ -1,2 +1,0 @@
-webpackJsonp([0x9427c64ab85d],{132:function(e,t,l){"use strict";function u(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var n=l(1),a=u(n),r=function(){return a.default.createElement("div",null,a.default.createElement("h1",null,"NOT FOUND"),a.default.createElement("p",null,"There's not much left here for you ;)"),a.default.createElement("p",null,"这里啥也没有，请访问其他页面吧"))};t.default=r,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-404-js-8e5aea5cd3509ab9fde8.js.map
