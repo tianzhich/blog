@@ -18,7 +18,7 @@
     "gatsby-remark-katex": "^1.0.14",
     "gatsby-remark-prismjs": "^2.0.5",
     "gatsby-source-filesystem": "^1.5.39",
-    "gatsby-transformer-remark": "^1.7.44",
+    "gatsby-transformer-remark": "^5.25.1",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
